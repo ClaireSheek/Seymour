@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Handlee&family=Open+Sans:wght@300;400&display=swap');
+@mixin flex($direction, $align, $justify){
+  display:flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin customOverlay($height, $width){
+  position: inherit;
+  background-color: rgba(68, 68, 68, 0.5);
+  height: $height;
+  width: $width;
+}
+
+//Site styles
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: #FCF9F9;
+}
+
+.App{
+  background-color: #FCF9F9;
+}
+
+//Nav Sytles
+.nav-list{
+  list-style: none;
+  display: flex;
+  font-family: 'Open Sans', sans-serif;
+
+  li{
+    margin: auto 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+  }
+}
+
+//Home Page Styles
+.home, .profile{
+  background-color: #FCF9F9;
+}
+
+
+
+//Banner Styles
+.banner{
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  height: 60vh;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.75);
+
+  .overlay{
+    @include customOverlay(60vh, 100%)
+  }
+
+  .bannerContents {
+    display: grid;
+    grid-template:
+      'title title . body' 20vh 
+      'title title . body' 40vh / 25% 35% 10% 30%;
+    padding: 0 4em;
+    grid-gap: 0.5em;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    background-size: cover;
+    background-position-y: center;
+    font-family: 'Dela Gothic One', cursive;
+    color: #FCF9F9;
+    text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.62);
+
+    .title{
+      grid-area: title;
+        h1{
+          // grid-area: head;
+          font-size: 8vw;
+        }
+    
+        h4{
+          // grid-area: subHead;
+          font-family: 'Open Sans', sans-serif;
+          font-size: 5vw;
+          align-self: end;
+        }
+    }
+
+    p{
+      grid-area: body;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.5vw;
+      font-weight: 600;
+    }
+  }
+}
+
+//Search Bar Styles
+.searchBar{
+  @include flex(row, center, flex-end);
+  padding: 3vh 5vw;
+  color: #707070;
+
+  .searchInput{
+    padding: 5px 20px;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.17);
+  }
+
+}
+
+//Gallery Styles
+.gallery {
+  @include flex(row, left, center);
+  flex-wrap: wrap;
+  gap: 1vw;
+
+  li{
+    list-style-type: none;
+  }
+}
+
+
+//Thumbnail Styles
+.thumbnail {
+  width: 200px;
+  height: 250px;
+  background-size: cover;
+
+
+  .overlay{
+    @include customOverlay(100%, 100%);
+
+    .details{
+      @include flex(column, flex-end, space-between);
+      padding: 5%;
+      min-height: 95%;
+      font-size: 1em;
+
+      .topBar{
+        @include flex(row, flex-start, space-between);
+        width: 100%
+      }
+    }
+  }
+}
+
+//Dialog Styles
+
+.dialog {
+  text-align: center;
+
+  .header{
+    font-family: 'Dela Gothic One', cursive;
+    color: #779651;
+  }
+
+  .image{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-left: 3%;
+    min-height: 40vh;
+    width: 40vw;
+    background-size: cover;
+    background-position: center;
+    text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.62);
+    color: #FCF9F9;
+  }
+
+  form {
+    *{
+      color: rgb(68, 68, 68);
+    }
+  }
+  h4{
+    color: rgb(68, 68, 68)
+  }
+
+  p{
+    color: rgb(68, 68, 68)
+  }
+}
+

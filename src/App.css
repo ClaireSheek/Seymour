@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Handlee&family=Open+Sans:wght@300;400&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: #FCF9F9;
+}
+
+.App {
+  background-color: #FCF9F9;
+}
+
+.nav-list {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.nav-list li {
+  margin: auto 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+.home, .profile {
+  background-color: #FCF9F9;
+}
+
+.banner {
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  height: 60vh;
+  -webkit-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.75);
+}
+
+.banner .overlay {
+  position: inherit;
+  background-color: rgba(68, 68, 68, 0.5);
+  height: 60vh;
+  width: 100%;
+}
+
+.banner .bannerContents {
+  display: -ms-grid;
+  display: grid;
+  grid-template: 'title title . body' 20vh  'title title . body' 40vh / 25% 35% 10% 30%;
+  padding: 0 4em;
+  grid-gap: 0.5em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: left;
+  background-size: cover;
+  background-position-y: center;
+  font-family: 'Dela Gothic One', cursive;
+  color: #FCF9F9;
+  text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.62);
+}
+
+.banner .bannerContents .title {
+  grid-area: title;
+}
+
+.banner .bannerContents .title h1 {
+  font-size: 8vw;
+}
+
+.banner .bannerContents .title h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 5vw;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+}
+
+.banner .bannerContents p {
+  grid-area: body;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5vw;
+  font-weight: 600;
+}
+
+.searchBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 3vh 5vw;
+  color: #707070;
+}
+
+.searchBar .searchInput {
+  padding: 5px 20px;
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.17);
+          box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.17);
+}
+
+.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1vw;
+}
+
+.gallery li {
+  list-style-type: none;
+}
+
+.thumbnail {
+  width: 200px;
+  height: 250px;
+  background-size: cover;
+}
+
+.thumbnail .overlay {
+  position: inherit;
+  background-color: rgba(68, 68, 68, 0.5);
+  height: 100%;
+  width: 100%;
+}
+
+.thumbnail .overlay .details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5%;
+  min-height: 95%;
+  font-size: 1em;
+}
+
+.thumbnail .overlay .details .topBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.dialog {
+  text-align: center;
+}
+
+.dialog .header {
+  font-family: 'Dela Gothic One', cursive;
+  color: #779651;
+}
+
+.dialog .image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 3%;
+  min-height: 40vh;
+  width: 40vw;
+  background-size: cover;
+  background-position: center;
+  text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.62);
+  color: #FCF9F9;
+}
+
+.dialog form * {
+  color: #444444;
+}
+
+.dialog h4 {
+  color: #444444;
+}
+
+.dialog p {
+  color: #444444;
+}
+/*# sourceMappingURL=App.css.map */
