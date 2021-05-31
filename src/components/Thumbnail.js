@@ -19,7 +19,7 @@ const Thumbnail = (props) => {
   const addPlantToProfile = (e) => {
     e.preventDefault();
 
-    Axios.post('http://localhost:4000/users/add', {
+    Axios.post('https://plant-server-clairesheek.vercel.app/users/add', {
       user_id: 6,
       plant_id: plant_id
     }).then((res) => {

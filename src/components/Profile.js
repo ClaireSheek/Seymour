@@ -10,7 +10,7 @@ console.log("Profile Props: ", props)
 
   const [plants, setPlants] = useState([])
 
-  const url = "http://localhost:4000/users/6"
+  const url = "https://plant-server-clairesheek.vercel.app/users/6"
 
   useEffect(() => {
     fetch(url)

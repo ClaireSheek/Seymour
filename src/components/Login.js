@@ -18,7 +18,7 @@ const Login = (props) => {
 
   const login = (e) => {
     e.preventDefault();
-    Axios.post('http://localhost:4000/users/login', {
+    Axios.post('https://plant-server-clairesheek.vercel.app/users/login', {
       // https://plant-server.vercel.app/users/login
       email: email,
       password: pass
