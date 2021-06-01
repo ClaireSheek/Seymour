@@ -1,6 +1,7 @@
 import React, {useState, useEffect }from 'react'
 import Banner from './Banner'
-import SearchBar from '../components/SearchBar'
+import SearchBar from './SearchBar'
+// import UserPlantList from './UserPlantList'
 import Gallery from './Gallery'
 
 

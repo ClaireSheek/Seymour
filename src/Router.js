@@ -4,10 +4,11 @@ import Home from './components/Home'
 import Profile from './components/Profile'
 
 
-const Router = () => {
+const Router = (props) => {
+    console.log("ROUTER PROPS:", props)
     return (
         <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" render={props => <Home loggedIn={props.loggedIn}/>} />
             <Route path='/profile' component={Profile} />
         </Switch>
     );
