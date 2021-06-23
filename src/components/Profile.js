@@ -13,6 +13,7 @@ const Profile = (props) => {
     fetch(url)
     .then((res) => res.json())
     .then(data => setPlants(data))
+    // eslint-disable-next-line
     }, [plants])
 
 
