@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { Card } from '@material-ui/core'
 import PlantDetails from './PlantDetails'
 import Axios from 'axios';
+import Login from './Login'
 
 
 const Thumbnail = (props) => {
@@ -16,14 +17,18 @@ const Thumbnail = (props) => {
 
   const addPlantToProfile = (e) => {
     e.preventDefault();
-
-    Axios.post('https://plant-server-clairesheek.vercel.app/users/add', {
-      user_id: props.userID,
-      plant_id: plant_id
-    }).then((res) => {
-      console.log(res)
-      ConfirmAdd("Added")
-    })
+    if (!props.loggedIn){
+      ConfirmAdd(<Login />)
+    }
+    else{
+      Axios.post('https://plant-server-clairesheek.vercel.app/users/add', {
+        user_id: props.userID,
+        plant_id: plant_id
+      }).then((res) => {
+        console.log(res)
+        ConfirmAdd("Added")
+      })
+    }
   }
 
   return (
