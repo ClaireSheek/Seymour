@@ -3,10 +3,12 @@ import Axios from 'axios';
 import { Button, Dialog, DialogContent } from '@material-ui/core';
 
 const Login = (props) => {
-  const {setUsername, updateStatus} = props
+  const {setUsername, updateStatus, setUserID} = props
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
+  const [error, setError] = useState('')
+
 
   // const updateStatus = (newState) => {
   //   props.updateStatus(newState)
@@ -25,12 +27,13 @@ const Login = (props) => {
     }).then((res) => {
 
       if(res.data.message){
-        console.log("failure", props, res)
+        setError(res.data.message)
       } else {
         updateStatus(true)
         setUsername(res.data[0].name)
+        setUserID(res.data[0].id)
         handleToggle()
-        console.log("success", props, res)
+        console.log("success", res.data[0].id)
       }
     })
   }
@@ -39,18 +42,20 @@ const Login = (props) => {
 
   return (
     <div>
-      <Button color="primary" onClick={handleToggle}>
+      <button color="primary" onClick={handleToggle}>
         Login
-      </Button>
+      </button>
       <Dialog onClose={handleToggle} className="dialog" open={open}>
           <h1 className='header'>LOGIN</h1> 
         <DialogContent dividers>
         <form className='form'
           // onSubmit={handleSubmit}
           style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
+          <p style={{color: "red"}}>{error}</p>
           <label>Email</label>
           <input 
               id="email" 
+              placeholder={email}
               // value={this.state.mpg} 
               onChange={(e) => {setEmail(e.target.value)}} 
               required />
@@ -62,7 +67,7 @@ const Login = (props) => {
               onChange={(e) => {setPass(e.target.value)}} 
               required />
           <br />
-          <button onClick={login} type="submit">Login</button>
+          <Button onClick={login} type="submit">Login</Button>
       </form>
       {/* <p>{setLoggedIn}</p> */}
         </DialogContent>

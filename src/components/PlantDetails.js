@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import Typography from '@material-ui/core/Typography';
@@ -18,9 +17,9 @@ const PlantDetails = (props) => {
 
   return (
     <div>
-      <Button color="primary" onClick={handleToggle}>
+      <button color="primary" onClick={handleToggle}>
         Details
-      </Button>
+      </button>
       <Dialog onClose={handleToggle} className="dialog" open={open}>
         <div className="image" style={backgroundStyle}>
           <h3>Common Name:</h3> 

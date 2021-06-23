@@ -9,7 +9,6 @@ const Thumbnail = (props) => {
   const [addPlant, ConfirmAdd] = useState("+")
 
   const name = Common.split(',')[0]
-  // console.log(name)
   
   const thumbnailStyle = {
     backgroundImage: `url(${Image})`
@@ -19,7 +18,7 @@ const Thumbnail = (props) => {
     e.preventDefault();
 
     Axios.post('https://plant-server-clairesheek.vercel.app/users/add', {
-      user_id: 6,
+      user_id: props.userID,
       plant_id: plant_id
     }).then((res) => {
       console.log(res)
@@ -33,7 +32,7 @@ const Thumbnail = (props) => {
         <div className="overlay">
           <div className="details">
             <div className="topBar">
-              <h2 onClick={addPlantToProfile}>{addPlant}</h2>
+              <button><h2 onClick={addPlantToProfile}>{addPlant}</h2></button>
               <PlantDetails plant={props.plant}/>
             </div>
             <h4>{name.toUpperCase()}</h4>

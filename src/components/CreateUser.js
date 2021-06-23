@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
-import { Button, Dialog, DialogContent } from '@material-ui/core';
+import { Dialog, DialogContent } from '@material-ui/core';
 
 const CreateUser = () => {
   const [open, setOpen] = useState(false);
@@ -27,15 +27,11 @@ const CreateUser = () => {
   }
 
 
-  // const backgroundStyle = {
-  //   backgroundImage: `url(${props.plant.Image})`
-  // }
-
   return (
     <div>
-      <Button color="primary" onClick={handleToggle}>
+      <button color="primary" onClick={handleToggle}>
         Create Account
-      </Button>
+      </button>
       <Dialog onClose={handleToggle} className="dialog" open={open}>
           <h1 className='header'>Create Account</h1> 
         <DialogContent dividers>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, Toolbar, Typography, Button } from '@material-ui/core'
+import { AppBar, Toolbar, Typography } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/styles'
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -17,7 +17,7 @@ const theme = createMuiTheme({
 });
 
 const NavBar = (props) => {
-  const { setUsername, updateStatus, username, loggedIn } = props
+  const { setUsername, updateStatus, setUserID, userID, username, loggedIn } = props
   console.log("NavBar props: ", props)
 
   return (
@@ -25,7 +25,7 @@ const NavBar = (props) => {
         <AppBar  className="NavBar" position="relative">
               <Toolbar>
                   <Typography variant="h6" style={{ flexGrow: "1" }}>
-                    <Link to={'/'}>Seymour</Link>
+                    <Link to={{pathname:'/', username: username, userID : userID }}>Seymour</Link>
                   </Typography>
                   {/* {if(loggedIn === true)} */}
                   {loggedIn === false ? (
@@ -34,19 +34,19 @@ const NavBar = (props) => {
                         <CreateUser />
                     </li>
                     <li className="nav-list-item">
-                      <Login updateStatus={updateStatus} setUsername={setUsername}/>
+                      <Login updateStatus={updateStatus} setUsername={setUsername} setUserID={setUserID} userID={userID}/>
                     </li>
                   </ul> ) : (
                   <ul className="nav-list">
                     <li className="nav-list-item">
-                      <Button color="primary">
+                      <button color="primary">
                         <Link to={'/'} onClick={(e) => {updateStatus(false)}}>Logout</Link>
-                      </Button>
+                      </button>
                     </li>
                     <li className="nav-list-item">
-                      <Button color="primary">
-                        <Link to={{pathname:'/profile', username: username}}>My Plants</Link>
-                      </Button>
+                      <button color="primary">
+                        <Link to={{pathname:'/profile', username: username, userID : userID}}>My Plants</Link>
+                      </button>
                     </li>
                   </ul>
                   )}

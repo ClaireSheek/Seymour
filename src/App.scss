@@ -6,9 +6,9 @@
   justify-content: $justify;
 }
 
-@mixin customOverlay($height, $width){
+@mixin customOverlay($height, $width, $opacity){
   position: inherit;
-  background-color: rgba(68, 68, 68, 0.5);
+  background-color: rgba(68, 68, 68, $opacity);
   height: $height;
   width: $width;
 }
@@ -18,23 +18,39 @@
   padding: 0;
   margin: 0;
   text-decoration: none;
-  color: #FCF9F9;
+  // color: #FCF9F9;
+  button{
+    color: #FCF9F9;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+  }
+  a{
+    color: #FCF9F9;
+  }
 }
 
 .App{
   background-color: #FCF9F9;
+  color: #FCF9F9;
 }
 
 //Nav Sytles
-.nav-list{
-  list-style: none;
-  display: flex;
-  font-family: 'Open Sans', sans-serif;
+.NavBar{
 
-  li{
-    margin: auto 20px;
+  .nav-list{
+    list-style: none;
+    display: flex;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
+    color: #FCF9F9;
+
+    li{
+      margin: auto 20px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+    }
   }
 }
 
@@ -54,7 +70,7 @@
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.75);
 
   .overlay{
-    @include customOverlay(60vh, 100%)
+    @include customOverlay(60vh, 100%, 0.5)
   }
 
   .bannerContents {
@@ -110,7 +126,6 @@
     border-radius: 5px;
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.17);
   }
-
 }
 
 //Gallery Styles
@@ -118,6 +133,8 @@
   @include flex(row, left, center);
   flex-wrap: wrap;
   gap: 1vw;
+  padding-top: 10vh;
+
 
   li{
     list-style-type: none;
@@ -125,26 +142,95 @@
 }
 
 
-//Thumbnail Styles
+//Home Thumbnail Styles
 .thumbnail {
   width: 200px;
   height: 250px;
   background-size: cover;
 
-
   .overlay{
-    @include customOverlay(100%, 100%);
+    @include customOverlay(250px, 100%, 0.4);
 
     .details{
-      @include flex(column, flex-end, space-between);
+      @include flex(column, right, space-between);
       padding: 5%;
       min-height: 95%;
       font-size: 1em;
+      color: #FCF9F9;
+      text-align: right;
 
       .topBar{
-        @include flex(row, flex-start, space-between);
+        @include flex(row, flex-end, space-between);
         width: 100%
       }
+    }
+  }
+}
+
+//User Plant List Styles
+.userPlantList {
+  @include flex(column, right, space-between);
+  color: #779651;
+  padding-top: 10vh;
+  
+  button{
+    color: #779651;
+  }
+  
+  .userPlant{
+    display: grid;
+    padding: 5vh;
+    border: solid black 1px;
+    grid-template: 
+      "common common common common close" 6vh
+      "plantImage scientific water light ."  20vh
+      "plantImage family soil fertilizer save" 20vh / 2fr 2fr 2fr 2fr 1fr;
+
+      #common{
+        grid-area: common;
+      }
+      #plantImage{
+        grid-area: plantImage;
+      }
+      #scientific{
+        grid-area: scientific;
+      }
+      #family{
+        grid-area: family;
+      }
+      #water{
+        grid-area: water;
+      }
+      #light{
+        grid-area: light;
+      }
+      #soil{
+        grid-area: soil;
+      }
+      #fertilizer{
+        grid-area: fertilizer;
+      }
+      #save{
+        grid-area: save;
+      }
+      #close{
+        grid-area: close;
+      }
+  }
+  .userPlantDetails{
+    display: flex;
+    flex-wrap: initial;
+    justify-content: flex-end;
+  }
+  .image{
+    max-width: 30vw;
+
+    section{
+      padding-left: 3vw;
+    }
+    img{
+      max-width: 50%;
+      max-height: auto;
     }
   }
 }
@@ -185,4 +271,3 @@
     color: rgb(68, 68, 68)
   }
 }
-

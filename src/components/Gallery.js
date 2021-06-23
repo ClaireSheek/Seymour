@@ -1,22 +1,15 @@
 import React from 'react'
 import Thumbnail from './Thumbnail'
-import { Route } from 'react-router'
-import UserPlantList from './UserPlantList'
 
 
-const Gallery = ({plants}) => {
 
+const Gallery = ({plants, userID, loggedIn}) => {
 
 
   return (
     <ul className="gallery">
       {plants && plants.map((plant, idx) => (
-        <li>
-            <Route exact path="/" render={props => <Thumbnail key={idx} plant={plant}/>} />
-            <Route path="/profile" render={props => <UserPlantList key={idx} plant={plant}/>} />
-          {/* <Thumbnail key={idx} plant={plant}/>
-          <UserPlantList key={idx} plant={plant}/> */}
-        </li>
+        <Thumbnail key={idx} plant={plant} userID={userID} loggedIn={loggedIn}/>
       ))}
     </ul>
   )

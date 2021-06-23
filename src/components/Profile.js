@@ -1,32 +1,20 @@
 import React, {useState, useEffect }from 'react'
 import Banner from './Banner'
-import SearchBar from './SearchBar'
-// import UserPlantList from './UserPlantList'
-import Gallery from './Gallery'
-
+// import SearchBar from './SearchBar'
+import UserPlantList from './UserPlantList'
 
 const Profile = (props) => {
-  // const {username} = props
-console.log("Profile Props: ", props)
-
   const [plants, setPlants] = useState([])
+  let user_id = props.location.userID
 
-  const url = "https://plant-server-clairesheek.vercel.app/users/6"
+  const url = `https://plant-server-clairesheek.vercel.app/users/${props.location.userID}`
 
   useEffect(() => {
     fetch(url)
     .then((res) => res.json())
     .then(data => setPlants(data))
-    }, [])
-  // console.log(username, plants)
+    }, [plants])
 
-  // const fetch = (e) => {
-  //   e.preventDefault();
-  //   // console.log(email, pass)
-  //   Axios.get('http://localhost:4000/users/6'
-  //   .then((res) => {
-  //       setPlants(res)
-  //   }))}
 
     return (
         <div className="profile">
@@ -34,10 +22,9 @@ console.log("Profile Props: ", props)
                   sub="Feed Me"
                   title={props.location.username}
                   body="Welcome to your Terrarium.
-                  View your plants etc….
-                  Add plants… More Description… coming soon."/>
-          <SearchBar placeholder={"Search your plants"}/>
-          <Gallery plants={plants}/>
+                  View and edit your plant list here, or add more plants to our database"/>
+          {/* <SearchBar placeholder={"Search your plants"} plants={plants}/> */}
+          <UserPlantList setPlants={setPlants} plants={plants} user_id={user_id}/>
         </div>
     )
 }
